@@ -14,14 +14,14 @@ class InstallCommand extends Command
    *
    * @var string
    */
-  protected $signature = ''; // full | only
+  protected $signature = 'pondol:install-common {type=full}'; // full | only
 
   /**
    * The console command description.
    *
    * @var string
    */
-  protected $description = '';
+  protected $description = "Install Pondol's common resources";
 
 
   public function __construct()
@@ -31,8 +31,13 @@ class InstallCommand extends Command
 
   public function handle()
   {
-    // $type = $this->argument('type');
-
+    $type = $this->argument('type');
+    \Artisan::call('vendor:publish',  [
+      '--force'=> true,
+      '--provider' => 'Pondol\Common\CommonServiceProvider'
+    ]);
+    
+    \Artisan::call('migrate');
   }
 
 }

@@ -26,6 +26,10 @@ class CommonServiceProvider extends ServiceProvider
       __DIR__.'/resources/pondol/' => public_path('pondol')
     ]);
 
+    $this->commands([
+      InstallCommand::class
+    ]);
+
     // Register migrations
     $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
