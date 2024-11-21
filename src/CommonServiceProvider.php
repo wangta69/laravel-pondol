@@ -30,11 +30,16 @@ class CommonServiceProvider extends ServiceProvider
       InstallCommand::class
     ]);
 
+    $this->loadCommonRoutes();
+
     // Register migrations
     $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
     $this->loadViewsFrom(__DIR__.'/resources/views', 'pondol-common');
   }
 
-
+  private function loadCommonRoutes()
+  {
+    $this->loadRoutesFrom(__DIR__ . '/routes/route-url.php');
+  }
 }

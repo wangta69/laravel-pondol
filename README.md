@@ -4,7 +4,7 @@
 ## Install
 ```
 composer require wangta69/laravel-pondol
- php artisan  pondol:install-common
+php artisan  pondol:install-common
 ```
 
 ## Components
