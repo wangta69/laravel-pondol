@@ -1,11 +1,10 @@
 <?php
-
 namespace Pondol\Common;
 
 use Illuminate\Support\ServiceProvider;
 
 use Pondol\Common\Console\Commands\InstallCommand;
-
+use Pondol\Common\Services\JsonKeyValueService;
 
 class CommonServiceProvider extends ServiceProvider
 {
@@ -14,7 +13,9 @@ class CommonServiceProvider extends ServiceProvider
    */
   public function register()
   {
-
+    $this->app->bind('jsonkeyvalue-facade', function () {
+      return new JsonKeyValueService();
+    });
   }
 
   /**

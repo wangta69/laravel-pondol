@@ -16,7 +16,7 @@ class CreateJsonKeyValues extends Migration
     if (!Schema::hasTable('json_key_values')) {
       Schema::create('json_key_values', function(BluePrint $table) {
         $table->id();
-        $table->string('key');
+        $table->string('key')->index();
         $table->json('value');
       });
     }
