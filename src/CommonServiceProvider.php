@@ -23,8 +23,21 @@ class CommonServiceProvider extends ServiceProvider
    */
   public function boot()
   {
+    // Publish config file and merge
+    if (!config()->has('pondol-common')) {
+      $this->publishes([
+        __DIR__ . '/config/pondol-common.php' => config_path('pondol-common.php'),
+      ], 'config');  
+    } 
+      
+    $this->mergeConfigFrom(
+      __DIR__ . '/config/pondol-common.php',
+      'pondol-common'
+    );
+
     $this->publishes([
-      __DIR__.'/resources/pondol/' => public_path('pondol')
+      __DIR__.'/resources/pondol/' => public_path('pondol'),
+      __DIR__.'/resources/views/components/partials/navigation.blade.php' => resource_path('views/components/partials/navigation.blade.php'),
     ]);
 
     $this->commands([
