@@ -37,7 +37,7 @@ class CommonServiceProvider extends ServiceProvider
 
     $this->publishes([
       __DIR__.'/resources/pondol/' => public_path('pondol'),
-      // __DIR__.'/resources/views/components/partials/navigation.blade.php' => resource_path('views/components/partials/navigation.blade.php'),
+      __DIR__.'/resources/pondol/route.js' => resource_path('pondol/route.js'), // market에서 mix 로 이용
     ]);
 
     if(!\File::exists(resource_path('views/components/partials/navigation.blade.php'))){
