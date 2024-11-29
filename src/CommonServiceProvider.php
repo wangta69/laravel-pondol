@@ -37,8 +37,14 @@ class CommonServiceProvider extends ServiceProvider
 
     $this->publishes([
       __DIR__.'/resources/pondol/' => public_path('pondol'),
-      __DIR__.'/resources/views/components/partials/navigation.blade.php' => resource_path('views/components/partials/navigation.blade.php'),
+      // __DIR__.'/resources/views/components/partials/navigation.blade.php' => resource_path('views/components/partials/navigation.blade.php'),
     ]);
+
+    if(!\File::exists(resource_path('views/components/partials/navigation.blade.php'))){
+      $this->publishes([
+        __DIR__.'/resources/views/components/partials/navigation.blade.php' => resource_path('views/components/partials/navigation.blade.php'),
+      ]);
+    } 
 
     $this->commands([
       InstallCommand::class
