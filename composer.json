@@ -2,6 +2,7 @@
   "name": "wangta69/laravel-pondol",
   "description": "Resources for pondol's packages",
   "type": "library",
+  "homepage": "https://www.onstory.fun/packages/laravel-pondol",
   "license": "MIT",
   "authors": [
     {

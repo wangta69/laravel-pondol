@@ -28,3 +28,12 @@ function showToaster(obj) {
     $ev.currentTarget.remove();
   })
 }
+
+$(function(){
+  $(document).on('click', '.act-toast-to', 'click', function(){
+    console.log(toast_to);
+    if(toast_to) {
+      location.href = toast_to;
+    }
+  });
+})
