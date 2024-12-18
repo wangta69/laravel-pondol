@@ -1,10 +1,10 @@
 <x-pondol-common::app>
-  @if($header)
+  @if(isset($header))
   <x-dynamic-component :component="$header" />
   @endif
   {{ $slot }}
-  <x-pondol-common::partials.footer />
 
+  <x-pondol-common::partials.footer />
   <x-pondol-common::partials.toaster />
 
 @section('styles')
