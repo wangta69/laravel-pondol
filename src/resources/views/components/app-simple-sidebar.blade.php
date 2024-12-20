@@ -17,6 +17,7 @@ $path = isset($path) ? $path : [];
 
 @section('styles')
 @parent
+<link rel="stylesheet" href="/pondol/app.css">
 <style>
   #footer {border-top: 1px solid #ced4da;}
 </style>
@@ -24,6 +25,8 @@ $path = isset($path) ? $path : [];
 
 @section('scripts')
 @parent
+<script src="/pondol/common.js"></script>
+<script src="/pondol/common-admin.js"></script>
 @endsection
 </x-pondol-common::app>
 
