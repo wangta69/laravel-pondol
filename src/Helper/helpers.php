@@ -1,4 +1,45 @@
 <?php
+use Pondol\Common\Facades\JsonKeyValue;
+
+if (!function_exists('jsonkey')) {
+  // 이것은 사용 안하는 것으로
+  function jsonkey($key, $dest=null){
+    $keyval = JsonKeyValue::getAsArray($key);
+    $params = explode('.', $dest);
+
+    if($dest) {
+      foreach($params as $v) {
+        $keyval = $keyval[$v];
+      }
+    }
+
+    return $keyval;
+  }
+}
+
+if (!function_exists('jsonval')) {
+  // jsonkevalue('market.template', 'shop.lists')
+  function jsonval($key, $dest=null){
+    $keyval = JsonKeyValue::getAsArray($key);
+    $params = explode('.', $dest);
+
+    if($dest) {
+      foreach($params as $v) {
+        $keyval = $keyval[$v];
+      }
+    }
+
+    return $keyval;
+  }
+}
+
+
+if (!function_exists('retriveJson')) {
+  // jsonkevalue('market.template', 'shop.lists')
+  function retriveJson($key){
+    return JsonKeyValue::getAsJson($key);
+  }
+}
 
 if (!function_exists('set_config')) {
   /**
