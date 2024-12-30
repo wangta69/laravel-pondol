@@ -66,7 +66,7 @@ class JsonKeyValueService
     if($item) { // 세부 키 변경
       $current[$item] = $v;
     } else { // 전체 변경
-      $current = array_merge($current, $value);
+      $current = array_replace_recursive($current, $value);
     }
 
     self::storeAsJson($key, $current);
