@@ -2,9 +2,10 @@
 namespace Pondol\Common;
 
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\Facades\Blade;
 use Pondol\Common\Console\Commands\InstallCommand;
 use Pondol\Common\Services\JsonKeyValueService;
+use Pondol\Common\View\Components\Navigation;
 
 class CommonServiceProvider extends ServiceProvider
 {
@@ -56,6 +57,7 @@ class CommonServiceProvider extends ServiceProvider
     $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
 
     $this->loadViewsFrom(__DIR__.'/resources/views', 'pondol-common');
+    Blade::component('common-navigation', Navigation::class);
   }
 
   private function loadCommonRoutes()

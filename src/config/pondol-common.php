@@ -1,4 +1,4 @@
 <?php
 return [
-  'component' => ['admin'=>['layout'=>'pondol-common::app-admin', 'lnb'=>'pondol-common::partials.navigation']],
+  'component' => ['admin'=>['layout'=>'pondol-common::common-admin', 'lnb'=>'pondol-common::partials.navigation']],
 ];
