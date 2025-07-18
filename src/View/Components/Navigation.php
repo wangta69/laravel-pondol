@@ -6,7 +6,7 @@
 namespace Pondol\Common\View\Components;
 
 use Illuminate\View\Component;
-use Pondol\Common\Models\JsonKeyValue;
+use Pondol\Common\Models\ManageMenu;
 
 class Navigation extends Component
 {
@@ -21,7 +21,7 @@ class Navigation extends Component
   public function render()
   {
 
-    $items = JsonKeyValue::where('key', 'like', 'lnb.enable.%')->where('v', '1')->get();
+    $items = ManageMenu::orderBy('order')->get();
     return view('pondol-common::components.partials.common-navigation', compact('items'));
   }
 }

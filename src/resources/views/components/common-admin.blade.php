@@ -4,7 +4,6 @@ $path = isset($path) ? $path : [];
 <x-pondol-common::app>
   <div class="wrapper">
    
-
     <x-common-navigation />
 
     <div class="container">

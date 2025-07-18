@@ -1,15 +1,12 @@
 <nav id="sidebar">
   <div class="sidebar-header">
-    <h3><a href="#">OnStory</a></h3>
+    <h3><a href="#">{{ config('app.name', 'OnStory') }}</a></h3>
     <strong>ON</strong>
   </div>
 
   <ul class="list-unstyled components" id="navbar-sidebar">
     @foreach($items as $item)
-        @if($item['key'] === 'lnb.enable.pondol-bbs')
-          <x-dynamic-component :component="config('pondol-bbs.component.admin.lnb')" />   
-        @endif
-    
+      <x-dynamic-component :component="$item->component" />   
     @endforeach
   </ul>
 </nav>

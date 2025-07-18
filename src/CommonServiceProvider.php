@@ -2,6 +2,7 @@
 namespace Pondol\Common;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Blade;
 use Pondol\Common\Console\Commands\InstallCommand;
 use Pondol\Common\Services\JsonKeyValueService;
@@ -63,5 +64,12 @@ class CommonServiceProvider extends ServiceProvider
   private function loadCommonRoutes()
   {
     $this->loadRoutesFrom(__DIR__ . '/routes/route-url.php');
+
+    $config = config('pondol-common.route_admin');
+    Route::prefix($config['prefix'])
+      ->as($config['as'])
+      ->middleware($config['middleware'])
+      ->namespace('Pondol\Common\Http\Controllers\Admin')
+      ->group(__DIR__ . '/routes/admin.php');
   }
 }

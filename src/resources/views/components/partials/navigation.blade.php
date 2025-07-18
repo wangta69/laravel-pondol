@@ -1,6 +1,6 @@
 <nav id="sidebar">
   <div class="sidebar-header">
-    <h3><a href="#">OnStory</a></h3>
+    <h3><a href="#">{{ config('app.name', 'OnStory') }}</a></h3>
     <strong>ON</strong>
   </div>
 
