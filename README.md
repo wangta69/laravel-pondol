@@ -30,3 +30,26 @@ php artisan  pondol:install-common
 ```
 <x-pondol-common::app-blank>
 ```
+
+
+
+## 기본 레이아웃 구조
+###  components/common-admin.blade.php
+```
+<body>
+  <div class="wrapper">
+    <nav id="sidebar" />
+    <div class="container">
+      <nav class="navbar" />
+      {{ $slot }} // $slot은 아래 참조
+      <footer />
+    </div><!--. container -->
+  </div>
+```
+
+#### slot 구조
+> div id="content" 로 하여 class 제작
+```
+<div id="content">
+
+```

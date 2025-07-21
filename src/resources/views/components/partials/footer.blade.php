@@ -10,9 +10,10 @@
 <style>
 #footer {
   border-top: 1px solid #ced4da;
-  position: fixed;
+  position: sticky;
   bottom: 0;
   width: 100%;
+  background-color: #fafafa
 }
 </style>
 @endsection

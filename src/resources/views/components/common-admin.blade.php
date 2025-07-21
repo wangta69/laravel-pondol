@@ -22,6 +22,7 @@ $path = isset($path) ? $path : [];
 @section('styles')
 @parent
 <link rel="stylesheet" href="/pondol/app.css">
+<link rel="stylesheet" href="/pondol/admin.css">
 <style>
   #footer {border-top: 1px solid #ced4da;}
 </style>

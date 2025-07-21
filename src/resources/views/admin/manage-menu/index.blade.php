@@ -3,7 +3,7 @@
   :path="['환경설정']"> 
 
   
-  <div class="container">
+  <div id="content">
     <h2 class='title'>관리자 Lnb 설정</h2>
     <div class="card">
       <div class="card-header">List</div>

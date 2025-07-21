@@ -3,7 +3,7 @@
   :path="['환경설정']"> 
 
   
-  <div class="container">
+  <div id="content">
     <h2 class='title'>컴포넌트 활성</h2>
     <div class="card">
       <div class="card-header">List</div>
