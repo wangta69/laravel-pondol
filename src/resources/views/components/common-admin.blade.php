@@ -2,6 +2,7 @@
 $path = isset($path) ? $path : [];
 @endphp
 <x-pondol-common::app>
+   @section('title', $title ?? '')
   <div class="wrapper">
    
     <x-common-navigation />
