@@ -1,41 +1,41 @@
+{{-- src/resources/views/components/common-admin.blade.php --}}
 @php
-$path = isset($path) ? $path : [];
+    $path = isset($path) ? $path : [];
 @endphp
 <x-pondol-common::app>
-   @section('title', $title ?? '')
-  <div class="wrapper">
-   
-    <x-common-navigation />
+    @section('title', $title ?? '')
+    <div class="wrapper">
 
-    <div class="container">
+        <x-common-navigation />
 
-      @if(count($path))
-      <x-pondol-common::partials.main-top-navigation :path="$path"/>
-      @endif
-      {{ $slot }}
-      <x-pondol-common::partials.footer />
+        <div class="container">
 
-    </div><!--. container -->
-  </div>
+            @if (count($path))
+                <x-pondol-common::partials.main-top-navigation :path="$path" />
+            @endif
+            {{ $slot }}
+            <x-pondol-common::partials.footer />
 
-  <x-pondol-common::partials.toaster />
+        </div><!--. container -->
+    </div>
 
-@section('styles')
-@parent
-<link rel="stylesheet" href="/pondol/app.css">
-<link rel="stylesheet" href="/pondol/admin.css">
-<style>
-  #footer {border-top: 1px solid #ced4da;}
-</style>
-@endsection
+    <x-pondol-common::partials.toaster />
 
-@section('scripts')
-@parent
-<script src="/pondol/common.js"></script>
-<script src="/pondol/common-admin.js"></script>
-@endsection
+    @section('styles')
+        @parent
+        <link rel="stylesheet" href="/pondol/app.css">
+        <link rel="stylesheet" href="/pondol/admin.css">
+        <style>
+            #footer {
+                border-top: 1px solid #ced4da;
+            }
+        </style>
+    @endsection
+
+    @section('scripts')
+        @parent
+        <script src="/pondol/common.js"></script>
+        <script src="{{ asset('pondol/common-admin.js') }}?v={{ filemtime(public_path('pondol/common-admin.js')) }}" defer>
+        </script>
+    @endsection
 </x-pondol-common::app>
-
-
-
-

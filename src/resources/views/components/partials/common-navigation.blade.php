@@ -1,3 +1,4 @@
+{{-- src/resources/views/components/partials/common-navigation.blade.php --}}
 <nav id="sidebar">
   <div class="sidebar-header">
     <h3><a href="#">{{ config('app.name', 'OnStory') }}</a></h3>

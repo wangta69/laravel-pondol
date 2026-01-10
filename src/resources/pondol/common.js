@@ -1,3 +1,4 @@
+// src/resources/pondol/common.js
 /** for bootstrp5 dynamic toaster */
 var toast_to = "";
 function showToaster(obj) {
