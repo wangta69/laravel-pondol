@@ -1,10 +1,10 @@
-ody {
-  font-family: 'Poppins', sans-serif;
+body {
+  font-family: "Poppins", sans-serif;
   background: #fafafa;
 }
 
 p {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.1em;
   font-weight: 300;
   line-height: 1.7em;
@@ -59,7 +59,7 @@ span {
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  background: #7386D5;
+  background: #7386d5;
   color: #fff;
   transition: all 0.3s;
 }
@@ -129,8 +129,9 @@ span {
   display: block;
 }
 
-#sidebar ul li a:hover,  #sidebar ul li.current-page a {
-  color: #7386D5;
+#sidebar ul li a:hover,
+#sidebar ul li.current-page a {
+  color: #7386d5;
   background: #fff;
 }
 
@@ -138,7 +139,7 @@ span {
   margin-right: 10px;
 }
 
-#sidebar ul li.active>a,
+#sidebar ul li.active > a,
 a[aria-expanded="true"] {
   color: #fff;
   background: #6d7fcc;
@@ -158,12 +159,12 @@ a[data-bs-toggle="collapse"] {
 
 .dropdown-toggle[aria-expanded="true"]::after {
   transform: rotate(180deg);
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .dropdown-toggle[aria-expanded="false"]::after {
   transform: rotate(0deg);
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 ul ul a {
@@ -172,10 +173,9 @@ ul ul a {
   background: #6d7fcc;
 }
 
-
 a.download {
   background: #fff;
-  color: #7386D5;
+  color: #7386d5;
 }
 
 a.article,
@@ -200,49 +200,81 @@ a.article:hover {
 ----------------------------------------------------- */
 
 @media (max-width: 768px) {
+  .wrapper {
+    position: relative;
+  }
+
   #sidebar {
-    min-width: 80px;
-    max-width: 80px;
-    text-align: center;
-    margin-left: -80px !important;
+    /* 모바일에서는 사이드바를 완전히 숨김 */
+    margin-left: -250px !important;
+    position: fixed;
+    z-index: 1000;
+    height: 100vh;
   }
-  .dropdown-toggle::after {
-    top: auto;
-    bottom: 10px;
-    right: 50%;
-    -webkit-transform: translateX(50%);
-    -ms-transform: translateX(50%);
-    transform: translateX(50%);
-  }
+
   #sidebar.active {
+    /* 토글 시 사이드바가 나타남 */
     margin-left: 0 !important;
+    min-width: 250px;
+    max-width: 250px;
   }
+
+  #content {
+    width: 100%;
+  }
+
+  /* 모바일에서는 아이콘과 텍스트가 모두 보이도록 설정 (250px 너비 활용) */
   #sidebar .sidebar-header h3 {
-    display: none;
+    display: block !important;
   }
   #sidebar .sidebar-header strong {
-    display: block;
+    display: none !important;
   }
   #sidebar ul li a {
-    padding: 20px 10px;
+    display: flex; /* 아이콘과 텍스트를 한 줄로 */
+    align-items: center; /* 세로 중앙 정렬 */
+    text-align: left !important;
+    padding: 12px 20px !important; /* 좌우 여백 확보 */
+    position: relative;
+  }
+
+  #sidebar ul li a i {
+    margin-right: 15px !important;
+    width: 25px; /* 아이콘 가로폭을 고정하면 텍스트 시작점이 일치해집니다 */
+    text-align: center;
+    font-size: 1.2em;
+    display: inline-block !important; /* 위아래로 쌓이지 않게 강제 */
   }
   #sidebar ul li a span {
-    font-size: 0.85em;
+    display: inline-block !important;
   }
-  #sidebar ul li a i {
-    margin-right: 0;
+
+  /* 3. 화살표(::after)를 무조건 오른쪽 끝으로 밀기 */
+  .dropdown-toggle::after {
     display: block;
+    position: absolute;
+    top: 50% !important;
+    right: 20px !important; /* 오른쪽 끝에서 20px 띄움 */
+    transform: translateY(-50%) !important;
   }
-  #sidebar ul ul a {
-    padding: 10px !important;
-  }
-  #sidebar ul li a i {
-    font-size: 1.3em;
-  }
-  #sidebar {
-    margin-left: 0;
-  }
+
+  /* 버튼 가시성 확보 */
   #sidebarCollapse span {
     display: none;
   }
+
+  .navbar {
+    margin-bottom: 20px;
+  }
+
+  /* 본문이 사이드바에 가려질 때의 오버레이 느낌을 위한 설정 */
+  #sidebar.active + .container {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}
+
+/* 추가 유틸리티 */
+.no-scroll {
+  overflow: hidden;
 }
