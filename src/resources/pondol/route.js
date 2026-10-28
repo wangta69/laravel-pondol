@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return result;
   };
 
-  var ROUTE = {
+  window.ROUTE = {
     routetostring: function (params, callback) {
       $.ajax({
         url: "/route-url",
