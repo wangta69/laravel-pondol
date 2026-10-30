@@ -1,280 +1,301 @@
+/* resources/pondol/admin.css */
+
+:root {
+  --admin-sidebar-bg: #0f172a; /* 딥 슬레이트 네이비 */
+  --admin-sidebar-header: #1e293b; /* 로고 영역 배경 */
+  --admin-sidebar-hover: #1e293b; /* 메뉴 호버 배경 */
+  --admin-sidebar-active: #4f46e5; /* 활성화 액센트 컬러 */
+  --admin-sidebar-text: #94a3b8; /* 기본 텍스트 */
+  --admin-sidebar-text-hover: #ffffff;
+  --admin-content-bg: #f8fafc;
+}
+
 body {
-  font-family: "Poppins", sans-serif;
-  background: #fafafa;
-}
-
-p {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.1em;
-  font-weight: 300;
-  line-height: 1.7em;
-  color: #999;
-}
-
-a,
-a:hover,
-a:focus {
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.navbar {
-  padding: 15px 10px;
-  background: #fff;
-  border: none;
-  border-radius: 0;
-  margin-bottom: 40px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-btn {
-  box-shadow: none;
-  outline: none !important;
-  border: none;
-}
-
-.line {
-  width: 100%;
-  height: 1px;
-  border-bottom: 1px dashed #ddd;
-  margin: 40px 0;
-}
-
-i,
-span {
-  display: inline-block;
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  background-color: var(--admin-content-bg);
+  color: #334155;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 /* ---------------------------------------------------
-  SIDEBAR STYLE
+  1. 슬림하고 세련된 다크 테마 커스텀 스크롤바
 ----------------------------------------------------- */
+#sidebar,
+#sidebar .sidebar-menu-body {
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+}
 
+#sidebar::-webkit-scrollbar,
+#sidebar .sidebar-menu-body::-webkit-scrollbar {
+  width: 5px;
+}
+
+#sidebar::-webkit-scrollbar-track,
+#sidebar .sidebar-menu-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#sidebar::-webkit-scrollbar-thumb,
+#sidebar .sidebar-menu-body::-webkit-scrollbar-thumb {
+  background-color: #334155;
+  border-radius: 4px;
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover,
+#sidebar .sidebar-menu-body::-webkit-scrollbar-thumb:hover {
+  background-color: #475569;
+}
+
+/* ---------------------------------------------------
+  2. LAYOUT & SIDEBAR (기본 데스크톱)
+----------------------------------------------------- */
 .wrapper {
   display: flex;
   align-items: stretch;
-  height: 100vh;
-}
-
-#sidebar {
-  min-width: 250px;
-  max-width: 250px;
-  background: #7386d5;
-  color: #fff;
-  transition: all 0.3s;
-}
-
-#sidebar.active {
-  min-width: 80px;
-  max-width: 80px;
-  text-align: center;
-}
-
-#sidebar.active .sidebar-header h3 {
-  display: none;
-}
-
-#sidebar.active .sidebar-header strong {
-  display: block;
-}
-
-#sidebar ul li a {
-  text-align: left;
-}
-
-#sidebar.active ul li a {
-  padding: 20px 10px;
-  text-align: center;
-  font-size: 0.85em;
-}
-
-#sidebar.active ul li a i {
-  margin-right: 0;
-  display: block;
-  font-size: 1.8em;
-  margin-bottom: 5px;
-}
-
-#sidebar.active ul ul a {
-  padding: 10px !important;
-}
-
-#sidebar.active .dropdown-toggle::after {
-  top: auto;
-  bottom: 10px;
-  right: 50%;
-  -webkit-transform: translateX(50%);
-  -ms-transform: translateX(50%);
-  transform: translateX(50%);
-}
-
-#sidebar .sidebar-header {
-  padding: 20px;
-  background: #6d7fcc;
-}
-
-#sidebar .sidebar-header strong {
-  display: none;
-  font-size: 1.8em;
-}
-
-#sidebar ul.components {
-  padding: 20px 0;
-  border-bottom: 1px solid #47748b;
-}
-
-#sidebar ul li a {
-  padding: 10px;
-  font-size: 1.1em;
-  display: block;
-}
-
-#sidebar ul li a:hover,
-#sidebar ul li.current-page a {
-  color: #7386d5;
-  background: #fff;
-}
-
-#sidebar ul li a i {
-  margin-right: 10px;
-}
-
-#sidebar ul li.active > a,
-a[aria-expanded="true"] {
-  color: #fff;
-  background: #6d7fcc;
-}
-
-a[data-bs-toggle="collapse"] {
+  min-height: 100vh;
+  width: 100%;
   position: relative;
 }
 
+#sidebar {
+  min-width: 260px;
+  max-width: 260px;
+  background-color: var(--admin-sidebar-bg);
+  color: var(--admin-sidebar-text);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 1020;
+}
+
+/* 로고 헤더 */
+#sidebar .sidebar-header {
+  padding: 18px 20px;
+  background: var(--admin-sidebar-header);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 64px;
+}
+
+#sidebar .sidebar-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+#sidebar .sidebar-header h3 a {
+  color: #fff;
+  text-decoration: none;
+}
+#sidebar .sidebar-header strong {
+  display: none;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 auto;
+}
+
+/* 메뉴 본체 */
+#sidebar .sidebar-menu-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 12px 14px;
+  -webkit-overflow-scrolling: touch;
+}
+
+#sidebar ul.components {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#sidebar ul li {
+  margin-bottom: 4px;
+}
+
+#sidebar ul li a {
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--admin-sidebar-text);
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap; /* 글자 줄바꿈 방지 */
+  transition: all 0.2s ease;
+}
+
+#sidebar ul li a:hover {
+  color: var(--admin-sidebar-text-hover);
+  background-color: var(--admin-sidebar-hover);
+}
+
+#sidebar ul li a i {
+  min-width: 24px;
+  font-size: 1.1rem;
+  margin-right: 12px;
+  text-align: center;
+  color: #64748b;
+}
+
+#sidebar ul li a:hover i,
+#sidebar ul li.active > a i {
+  color: #fff;
+}
+
+#sidebar ul li.active > a,
+#sidebar ul li.current-page > a {
+  color: #fff;
+  background-color: var(--admin-sidebar-active);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+}
+
+/* 아코디언 서브메뉴 */
+.dropdown-toggle {
+  position: relative;
+  padding-right: 36px !important;
+}
 .dropdown-toggle::after {
-  display: block;
+  display: inline-block;
   position: absolute;
+  right: 16px;
   top: 50%;
-  right: 20px;
   transform: translateY(-50%);
+  margin: 0 !important;
+  border: none;
+  content: "\f107";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  transition: transform 0.25s ease;
 }
-
 .dropdown-toggle[aria-expanded="true"]::after {
-  transform: rotate(180deg);
-  transition: 0.3s ease-in-out;
+  transform: translateY(-50%) rotate(180deg);
 }
 
-.dropdown-toggle[aria-expanded="false"]::after {
-  transform: rotate(0deg);
-  transition: 0.3s ease-in-out;
+#sidebar ul ul {
+  padding-left: 0;
+  margin: 4px 0 8px 0;
+  list-style: none;
+}
+#sidebar ul ul a {
+  padding: 8px 12px 8px 48px;
+  font-size: 0.88rem;
+  color: #94a3b8;
 }
 
-ul ul a {
-  font-size: 0.9em !important;
-  padding-left: 30px !important;
-  background: #6d7fcc;
-}
-
-a.download {
-  background: #fff;
-  color: #7386d5;
-}
-
-a.article,
-a.article:hover {
-  background: #6d7fcc !important;
-  color: #fff !important;
+/* 하단 가이드 버튼 */
+#sidebar .sidebar-footer {
+  padding: 12px 14px;
+  background: var(--admin-sidebar-header);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* ---------------------------------------------------
-  CONTENT STYLE
+  3. 데스크톱 축소 모드 (화면 너비 769px 이상에서만 축소 동작)
 ----------------------------------------------------- */
-
-#content {
-  width: 100%;
-  /* padding: 20px 20px 100px 20px; */
-  min-height: 100vh;
-  transition: all 0.3s;
-}
-
-/* ---------------------------------------------------
-  MEDIAQUERIES
------------------------------------------------------ */
-
-@media (max-width: 768px) {
-  .wrapper {
-    position: relative;
-  }
-
-  #sidebar {
-    /* 모바일에서는 사이드바를 완전히 숨김 */
-    margin-left: -250px !important;
-    position: fixed;
-    z-index: 1000;
-    height: 100vh;
-  }
-
+@media (min-width: 769px) {
   #sidebar.active {
-    /* 토글 시 사이드바가 나타남 */
-    margin-left: 0 !important;
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 78px !important;
+    max-width: 78px !important;
+    text-align: center;
+  }
+
+  /* 축소 시 로고 ON 만 표시 */
+  #sidebar.active .sidebar-header h3 {
+    display: none !important;
+  }
+  #sidebar.active .sidebar-header strong {
+    display: block !important;
+  }
+
+  /* 축소 시 글씨와 화살표 완전 숨김 (아이콘만 가운데 정렬) */
+  #sidebar.active ul li a {
+    justify-content: center;
+    padding: 14px 0;
+  }
+  #sidebar.active ul li a i {
+    margin-right: 0 !important;
+    font-size: 1.25rem;
+  }
+  #sidebar.active ul li a span,
+  #sidebar.active ul li a:not(:has(i)),
+  #sidebar.active .dropdown-toggle::after,
+  #sidebar.active ul ul {
+    display: none !important; /* 글자 및 서브메뉴 숨김으로 깨짐 완벽 방지 */
+  }
+
+  /* 하단 가이드 버튼도 텍스트 숨기고 아이콘만 중앙 정렬 */
+  #sidebar.active .sidebar-footer a span {
+    display: none !important;
+  }
+  #sidebar.active .sidebar-footer a {
+    padding: 10px 0 !important;
+  }
+  #sidebar.active .sidebar-footer a i {
+    margin: 0 !important;
+    font-size: 1.1rem;
   }
 
   #content {
-    width: 100%;
+    flex: 1;
+    width: calc(100% - 260px);
+    transition: all 0.25s ease;
+  }
+  #sidebar.active + #content {
+    width: calc(100% - 78px);
+  }
+}
+
+/* ---------------------------------------------------
+  4. 모바일 화면 (768px 이하 - 3번째 사진 완벽 해결)
+----------------------------------------------------- */
+@media (max-width: 768px) {
+  #sidebar {
+    /* 모바일에서는 80px 축소가 아니라 평소엔 화면 밖으로 숨김 */
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 260px !important;
+    min-width: 260px !important;
+    max-width: 260px !important;
+    margin-left: -260px !important; /* 기본 숨김 */
+    z-index: 1050;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
+    transition: margin-left 0.3s ease-in-out !important;
   }
 
-  /* 모바일에서는 아이콘과 텍스트가 모두 보이도록 설정 (250px 너비 활용) */
+  /* 모바일 토글 버튼 클릭 시 정상적인 260px 전체 사이드바로 등장 */
+  #sidebar.active {
+    margin-left: 0 !important;
+  }
+
+  /* 모바일에서는 축소가 아니므로 무조건 전체 로고("길라") 표시 */
   #sidebar .sidebar-header h3 {
     display: block !important;
   }
   #sidebar .sidebar-header strong {
     display: none !important;
   }
-  #sidebar ul li a {
-    display: flex; /* 아이콘과 텍스트를 한 줄로 */
-    align-items: center; /* 세로 중앙 정렬 */
-    text-align: left !important;
-    padding: 12px 20px !important; /* 좌우 여백 확보 */
-    position: relative;
-  }
 
-  #sidebar ul li a i {
-    margin-right: 15px !important;
-    width: 25px; /* 아이콘 가로폭을 고정하면 텍스트 시작점이 일치해집니다 */
-    text-align: center;
-    font-size: 1.2em;
-    display: inline-block !important; /* 위아래로 쌓이지 않게 강제 */
+  /* 모바일 본문(#content)은 사이드바에 밀리지 않고 항상 100% 유지 (표 깨짐 방지) */
+  #content {
+    width: 100% !important;
+    min-width: 100% !important;
   }
-  #sidebar ul li a span {
-    display: inline-block !important;
-  }
-
-  /* 3. 화살표(::after)를 무조건 오른쪽 끝으로 밀기 */
-  .dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50% !important;
-    right: 20px !important; /* 오른쪽 끝에서 20px 띄움 */
-    transform: translateY(-50%) !important;
-  }
-
-  /* 버튼 가시성 확보 */
-  #sidebarCollapse span {
-    display: none;
-  }
-
-  .navbar {
-    margin-bottom: 20px;
-  }
-
-  /* 본문이 사이드바에 가려질 때의 오버레이 느낌을 위한 설정 */
-  #sidebar.active + .container {
-    opacity: 0.3;
-    pointer-events: none;
-  }
-}
-
-/* 추가 유틸리티 */
-.no-scroll {
-  overflow: hidden;
 }

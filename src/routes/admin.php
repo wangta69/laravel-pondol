@@ -1,5 +1,6 @@
 <?php
-// Route::get('', 'AdminController@index')->name('index');
+
+// src/routes/admin.php
 
 // 환경설정
 Route::get('manage-menu', 'ManageMenuController@index')->name('menu.index');
@@ -9,4 +10,4 @@ Route::put('manage-menu/destroy/{menu}', 'ManageMenuController@destroy')->name('
 Route::get('components', 'ComponentsController@index')->name('component.index');
 Route::get('component/activate/{component}', 'ComponentsController@activate')->name('component.activate');
 
-
+Route::get('ui-guide', 'UiGuideController@index')->name('ui-guide.index');

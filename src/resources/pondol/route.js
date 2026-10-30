@@ -1,3 +1,4 @@
+// src/resources/pondol/routes.js 
 document.addEventListener("DOMContentLoaded", function () {
   var csrf_token = $("meta[name=csrf-token]").attr("content");
   var onprocessing = false;
